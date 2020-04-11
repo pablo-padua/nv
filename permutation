@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Permutation
+{
+    class Permutation
+    {
+        private static void permute(string str, int index, int length)
+        {
+            if (index == length)
+            {
+                Console.WriteLine(str);
+            }
+            else if (index == length && str == "ABAABBABAB")
+            {
+                Console.WriteLine(str + "  <--- O cadeado será aberto aqui");
+            }
+            else
+            {
+                for (int i = index; i <= length; i++)
+                {
+                    str = swap(str, index, i);
+                    permute(str, index + 1, length);
+                    str = swap(str, index, i);
+                    //Console.WriteLine(str);
+                }
+            }
+        }
+
+        private static string swap(string str, int i, int j)
+        {
+            char temp;
+            char[] charArray = str.ToCharArray();
+            temp = charArray[i];
+            charArray[i] = charArray[j];
+            charArray[j] = temp;
+            String s = new String(charArray);
+            return s;
+        }
+        private static void Main()
+        {
+            String str = "ABABABABAB";
+            int strLength = str.Length;
+            permute(str, 0, strLength - 1);
+
+            Console.ReadKey();
+        }
+
+    }
+}
