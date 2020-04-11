@@ -1,0 +1,80 @@
+using System;
+using System.Linq;
+
+namespace cadastro1
+{
+    class Program
+    {
+        static void Main()
+        {
+            {
+                // Pegar a data atual.
+                DateTime thisDay = DateTime.Today;
+
+                string nome, estado, nascimento, cpf, telefone, opcao,rg,data;
+                int count;
+                var sim = new string[] { "sim", "SIM", "Sim", "SiM" };
+                var uf1 = new string[] { "sc", "SC", "Sc", "sC" };
+                var uf2 = new string[] { "PR", "Pr", "pr", "pR" };
+                Console.Write("Seja bem-vindo a central de cadastros.\n");
+                for (count = 0; count < 5; count++)
+                {
+                    Console.Write("\nDigite a sigla de seu estado: ");
+                    estado = Console.ReadLine();
+                
+                    if (uf1.Contains(estado))
+                    {
+                        Console.Write("Nome: ");
+                        nome = Console.ReadLine();
+                        Console.Write("\nOlá, " + nome + "\n");
+                        Console.Write("Digite o seu cpf: ");
+                        cpf = Console.ReadLine();
+                        Console.Write("Digite o seu RG: ");
+                        rg = Console.ReadLine();
+                        Console.Write("Data atual: " + thisDay.ToString("d"));
+                        data = thisDay.ToString("d");
+                        Console.Write("\nData de Nascimento: ");
+                        nascimento = Console.ReadLine();
+                        Console.Write("Deseja adicionar telefone? ");
+                        opcao = Console.ReadLine();
+                        if (sim.Contains(opcao))
+                        {
+                            Console.Write("Telefone: ");
+                            telefone = Console.ReadLine();
+                            Console.Write("Cadastro Completo.\n");
+                        }
+                        else
+                        {
+                            Console.Write("Cadastro Completo.\n");
+                        }
+                    }
+                    else if (uf2.Contains(estado))
+                    {
+                        Console.Write("Nome: ");
+                        nome = Console.ReadLine();
+                        Console.Write("\nOlá, " + nome + "\n");
+                        Console.Write("Digite o seu cpf: ");
+                        cpf = Console.ReadLine();
+                        Console.Write("Data atual: " + thisDay.ToString("d"));
+                        data = thisDay.ToString("d");
+                        Console.Write("\nData de Nascimento: ");
+                        nascimento = Console.ReadLine();
+                        Console.Write("Deseja adicionar telefone? ");
+                        opcao = Console.ReadLine();
+                        if (sim.Contains(opcao))
+                        {
+                            Console.Write("Telefone: ");
+                            telefone = Console.ReadLine();
+                            Console.Write("Cadastro Completo.\n");
+                        }
+                        else
+                        {
+                            Console.Write("Cadastro Completo.\n");
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
